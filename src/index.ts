@@ -4,7 +4,7 @@ const DefinePlugin = require('webpack/lib/DefinePlugin')
 /**
  * @param externals list packages that should be used as node modules, directly from node_modules (without bundling)
  */
-export function electron(externals: Array<string>) {
+export function electron(externals: Array<string> = []) {
   return function electron(this: WebpackConfig): WebpackConfig {
     return {
       output: literalReplace<any>({
