@@ -18,19 +18,6 @@ export = function electron({externals = []} = {}) {
         mainFields: ['webpack', 'browser', 'web', 'browserify', ['jam', 'main'], 'main'],
       },
 
-      plugins: [
-        new DefinePlugin({
-          '__DEV__': true,
-          'ENV': JSON.stringify(this.metadata.ENV),
-          'HMR': this.metadata.HMR,
-          'process.env': {
-            'ENV': JSON.stringify(this.metadata.ENV),
-            'NODE_ENV': JSON.stringify(this.metadata.ENV),
-            'HMR': this.metadata.HMR,
-          }
-        })
-      ].concat(get(this, 'plugins', [])),
-
       externals: externals.concat(get(this, 'externals', []))
     }
   }
