@@ -1,11 +1,11 @@
-import {WebpackConfig, get, literalReplace} from '@easy-webpack/core'
+import {WebpackConfigWithMetadata, get, literalReplace} from '@easy-webpack/core'
 const DefinePlugin = require('webpack/lib/DefinePlugin')
 
 /**
  * @param externals list packages that should be used as node modules, directly from node_modules (without bundling)
  */
 export = function electron({externals = []} = {}) {
-  return function electron(this: WebpackConfig): WebpackConfig {
+  return function electron(this: WebpackConfigWithMetadata): WebpackConfigWithMetadata {
     return {
       output: literalReplace<any>({
         path: this.output.path,
