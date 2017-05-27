@@ -7,14 +7,7 @@ const DefinePlugin = require('webpack/lib/DefinePlugin')
 export = function electron({externals = []} = {}) {
   return function electron(this: WebpackConfigWithMetadata): WebpackConfigWithMetadata {
     return {
-      output: literalReplace<any>({
-        path: this.output.path,
-        filename: 'bundle.js',
-        libraryTarget: 'commonjs2'
-      }),
-      
       resolve: {
-        packageMains: ['webpack', 'browser', 'web', 'browserify', ['jam', 'main'], 'main'],
         mainFields: ['webpack', 'browser', 'web', 'browserify', ['jam', 'main'], 'main'],
       },
 
